@@ -1,0 +1,3 @@
+-- Run this after creating a Supabase Storage bucket named: project-files
+-- The bucket should be private.
+-- Storage access is handled through your app. For a first version, keep downloads inside authenticated pages.
