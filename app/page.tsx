@@ -37,6 +37,8 @@ export default async function HomePage({ searchParams }: { searchParams?: Promis
     : { data: [] as any[] };
 
   const safeTasks = tasks ?? [];
+  const safeNotes = notes ?? [];
+  const safeFiles = files ?? [];
 
   const openTasks = safeTasks.filter((t) => !t.done).length;
 
@@ -56,8 +58,8 @@ export default async function HomePage({ searchParams }: { searchParams?: Promis
         <section className="grid md:grid-cols-4 gap-4">
           <Card title="Projects" value={safeProjects.length} note="Active workspaces" />
           <Card title="Open tasks" value={openTasks} note="Need attention" />
-          <Card title="Notes" value={notes.length} note="For selected project" />
-          <Card title="Files" value={files.length} note="Documents and finals" />
+          <Card title="Notes" value={safesafeNotes.length} note="For selected project" />
+          <Card title="Files" value={safeFiles.length} note="Documents and finals" />
         </section>
 
         <section className="grid xl:grid-cols-[320px_1fr] gap-6">
@@ -120,7 +122,7 @@ export default async function HomePage({ searchParams }: { searchParams?: Promis
                     <button className="rounded-xl bg-slate-900 text-white px-4 py-3">Save note</button>
                   </form>
                   <div className="space-y-3">
-                    {notes.length ? notes.map((note) => (
+                    {safeNotes.length ? safeNotes.map((note) => (
                       <div key={note.id} className="border border-slate-200 rounded-2xl p-4">
                         <p className="font-medium">{note.title}</p>
                         <p className="text-sm text-slate-600 mt-2 whitespace-pre-wrap">{note.content}</p>
@@ -141,7 +143,7 @@ export default async function HomePage({ searchParams }: { searchParams?: Promis
                     <button className="rounded-xl bg-slate-900 text-white px-4 py-3">Upload file</button>
                   </form>
                   <div className="space-y-3">
-                    {files.length ? files.map((file) => (
+                    {safeFiles.length ? safeFiles.map((file) => (
                       <div key={file.id} className="border border-slate-200 rounded-2xl p-4">
                         <p className="font-medium">{file.name}</p>
                         <p className="text-sm text-slate-500">{file.file_type}</p>
