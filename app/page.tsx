@@ -36,7 +36,9 @@ export default async function HomePage({ searchParams }: { searchParams?: Promis
     ? await supabase.from("files").select("*").eq("project_id", selectedProject.id).order("created_at", { ascending: false })
     : { data: [] as any[] };
 
-  const openTasks = tasks.filter((t) => !t.done).length;
+  const safeTasks = tasks ?? [];
+
+  const openTasks = safeTasks.filter((t) => !t.done).length;
 
   return (
     <main className="min-h-screen bg-slate-50 p-5 lg:p-8">
@@ -98,7 +100,7 @@ export default async function HomePage({ searchParams }: { searchParams?: Promis
                     <button className="rounded-xl bg-slate-900 text-white px-4">Add</button>
                   </form>
                   <div className="space-y-3">
-                    {tasks.length ? tasks.map((task) => (
+                    {tasks.length ? safeTasks.map((task) => (
                       <form key={task.id} action={async () => { "use server"; await toggleTask(task.id, !task.done); }} className="flex items-center justify-between gap-3 border border-slate-200 rounded-2xl p-4">
                         <div>
                           <p className={task.done ? "line-through text-slate-400" : "font-medium"}>{task.name}</p>
