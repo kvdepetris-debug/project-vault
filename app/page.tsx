@@ -102,7 +102,7 @@ export default async function HomePage({ searchParams }: { searchParams?: Promis
                     <button className="rounded-xl bg-slate-900 text-white px-4">Add</button>
                   </form>
                   <div className="space-y-3">
-                    {tasks.length ? safeTasks.map((task) => (
+                    {safeTasks.length ? safeTasks.map((task)=> (
                       <form key={task.id} action={async () => { "use server"; await toggleTask(task.id, !task.done); }} className="flex items-center justify-between gap-3 border border-slate-200 rounded-2xl p-4">
                         <div>
                           <p className={task.done ? "line-through text-slate-400" : "font-medium"}>{task.name}</p>
