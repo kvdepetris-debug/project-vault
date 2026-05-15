@@ -58,7 +58,7 @@ export default async function HomePage({ searchParams }: { searchParams?: Promis
         <section className="grid md:grid-cols-4 gap-4">
           <Card title="Projects" value={safeProjects.length} note="Active workspaces" />
           <Card title="Open tasks" value={openTasks} note="Need attention" />
-          <Card title="Notes" value={safesafeNotes.length} note="For selected project" />
+          <Card title="Notes" value={safeNotes.length} note="For selected project" />
           <Card title="Files" value={safeFiles.length} note="Documents and finals" />
         </section>
 
