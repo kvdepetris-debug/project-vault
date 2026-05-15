@@ -39,6 +39,7 @@ export default async function HomePage({ searchParams }: { searchParams?: Promis
   const safeTasks = tasks ?? [];
   const safeNotes = notes ?? [];
   const safeFiles = files ?? [];
+  const safeReminders = reminders ?? [];
 
   const openTasks = safeTasks.filter((t) => !t.done).length;
 
@@ -161,7 +162,7 @@ export default async function HomePage({ searchParams }: { searchParams?: Promis
                     <button className="rounded-xl bg-slate-900 text-white px-4 py-3">Save reminder</button>
                   </form>
                   <div className="space-y-3">
-                    {reminders.length ? reminders.map((r) => (
+                    {safeReminders.length ? safeReminders.map((r)=> (
                       <div key={r.id} className="border border-slate-200 rounded-2xl p-4">
                         <p className="font-medium">{r.title}</p>
                         <p className="text-sm text-slate-500">{r.priority} • {r.remind_at}</p>
