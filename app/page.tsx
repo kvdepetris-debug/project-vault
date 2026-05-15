@@ -15,7 +15,10 @@ export default async function HomePage({ searchParams }: { searchParams?: Promis
     .eq("user_id", user.id)
     .order("created_at", { ascending: false });
 
-  const selectedProject = projects.find((p) => p.id === params?.project) ?? projects[0] ?? null;
+  const safeProjects = projects ?? [];
+  
+  const selectedProject =
+    safeProjects.find((p) => p.id === params?.project) ?? safeProjects[0] ?? null;
 
   const { data: tasks = [] } = selectedProject
     ? await supabase.from("tasks").select("*").eq("project_id", selectedProject.id).order("created_at", { ascending: false })
@@ -49,7 +52,7 @@ export default async function HomePage({ searchParams }: { searchParams?: Promis
         </header>
 
         <section className="grid md:grid-cols-4 gap-4">
-          <Card title="Projects" value={projects.length} note="Active workspaces" />
+          <Card title="Projects" value={safeProjects.length} note="Active workspaces" />
           <Card title="Open tasks" value={openTasks} note="Need attention" />
           <Card title="Notes" value={notes.length} note="For selected project" />
           <Card title="Files" value={files.length} note="Documents and finals" />
@@ -68,7 +71,7 @@ export default async function HomePage({ searchParams }: { searchParams?: Promis
             <div className="rounded-3xl bg-white border border-slate-200 p-5 shadow-sm">
               <h2 className="text-xl font-semibold mb-3">Your projects</h2>
               <div className="space-y-3">
-                {projects.length ? projects.map((project) => (
+                {safeProjects.length ? safeProjects.map((project) => (
                   <a key={project.id} href={`/?project=${project.id}`} className={`block rounded-2xl border p-4 ${selectedProject?.id === project.id ? "border-slate-900 bg-slate-50" : "border-slate-200"}`}>
                     <p className="font-medium">{project.name}</p>
                     <p className="text-sm text-slate-500 mt-1">{project.status} • Due {project.due_date ?? "not set"}</p>
