@@ -1,6 +1,6 @@
 # GitHub Tool Library — Expansion Batch 1
 
-Updated 2026-10-20. **19 additional public repositories verified by connected GitHub metadata**. This file extends `docs/github-tool-library.md` without modifying its original decisions. Entries are **bookmarks and evaluation candidates**, not installed dependencies or endorsements. Stars and licensing were intentionally omitted pending individual reviews.
+Initial batch updated 2026-10-20: **19 additional public repositories verified by connected GitHub metadata**. Two further entries were verified and added 2026-10-22. This file extends `docs/github-tool-library.md` without modifying its original decisions. Entries are **bookmarks and evaluation candidates**, not installed dependencies or endorsements. Stars and licensing were intentionally omitted pending individual reviews.
 
 | Verified repository | Area | Priority | Intended use and comparison |
 |---|---|---|---|
@@ -50,3 +50,18 @@ Updated 2026-10-20. **19 additional public repositories verified by connected Gi
 ## Backlog
 
 Before any integration, open an issue or branch with exact project scope, permissions, tests, expected cost, rollback and success criteria. No software was installed as part of this library update.
+
+## Additions — 2026-10-22
+
+Both upstream repositories and their READMEs were checked with the connected GitHub account. **Reference-only: saved to this catalog, not cloned, installed, or granted access.** Their repositories report the MIT license; check exact license terms and dependencies before any deployment.
+
+| Verified repository | Area | Priority | Intended use and comparison |
+|---|---|---|---|
+| [andrewyng/openworker](https://github.com/andrewyng/openworker) | Desktop AI coworker / agent workflows | Evaluate | Local-first AI desktop agent with connectors, scheduled tasks, model-provider choice, audit logs, and human approval gates. Potential for document preparation, inbox/project operations and code/security review. Compare against ChatGPT Work, existing Dify workflows and other agents before adding a separate desktop environment. |
+| [ItsssssJack/SlopMonster](https://github.com/ItsssssJack/SlopMonster) | Writing quality / website and marketing copy | Pilot | Python standard-library lint checker for common AI-writing patterns in Markdown, HTML and text, plus optional second-model editing workflow. Evaluate as a non-blocking quality check for website copy, product descriptions, emails and documentation. Human fact-check and editorial judgment remain essential. |
+
+### Evaluation notes and project fit
+
+- **OpenWorker:** Desktop software (Windows/macOS), not a hosted cloud-only agent. Useful to revisit if desktop-based workflows are desired. Its README labels it an open beta; the Windows installer was described as unsigned at review time. BYO model credentials may incur inference charges, and installed connectors and commands require careful permission and sandbox review. Start with synthetic files and no company or personal credentials. Test specifically against Project Vault, engineering report workflows and GitHub operations before wider access.
+- **SlopMonster:** Suitable for a disposable CI or content-review pilot on Thornhush, Livvy's Sweets and future premium websites; the basic checker requires Python 3 but no API key. The optional second-model editing step needs an installed/authenticated AI CLI and may incur usage costs. Its 5-point score measures specific text patterns, **not** whether a text is truly AI-written, factually accurate, or publication-ready. Don't block deployment on its score until false positives have been reviewed.
+- **Adoption boundary:** Keep existing applications and catalog entries unchanged. Neither project has been installed or connected by adding these references.
