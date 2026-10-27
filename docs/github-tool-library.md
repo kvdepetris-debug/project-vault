@@ -86,3 +86,11 @@ Updated 2026-10-20. This is a **reference catalog**, not an installation or secu
 - https://github.com/Fincept-Corporation/FinceptTerminal
 
 For other entries, verify the canonical upstream before downloading, forking, installing or connecting accounts. Do not put credentials in this repository: it is public. This register intentionally stores links and decisions only, not source-code copies or API keys.
+
+## Website SEO audit reference (2026-10-27)
+
+| Repository/tool | Category | Decision | Comparative finding |
+|---|---|---|---|
+| [AgriDaniel/claude-seo](https://github.com/AgriDaniel/claude-seo) | Website development / SEO / Claude Code | Evaluate | Video demonstrates technical, content, structured-data, local and AI-search SEO auditing. Potential use for Livvy's Sweets, Thornhush and future sites. Verify upstream code, license, maintenance, dependencies, security and reported results before running. |
+
+**Source:** User-provided 38-second TikTok video (2026-10-27). The video claims 26 sub-skills and 19 agents; these figures and traffic outcomes are promotional claims, not independently validated. Catalog entry only; not installed or endorsed. Suggested pilot: run on a staging site with no production credentials, compare findings against Search Console, Lighthouse and manual checks, then decide whether to adopt.
